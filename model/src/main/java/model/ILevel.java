@@ -1,20 +1,24 @@
 package model;
 
-public interface ILevel {
+import java.util.Observable;
 
-	int getWidth();
+import model.Element.IElement;
+
+public interface ILevel {
 
 	int getHeight();
 
+	Observable getObservable();
+
 	/**
-	 * 
+	 *
 	 * @param x
 	 * @param y
 	 */
 	IElement getOnTheLevelXY(int x, int y);
 
-	void setMobileHasChanged();
+	int getWidth();
 
-	Observable getObservable();
+	void setMobileHasChanged();
 
 }

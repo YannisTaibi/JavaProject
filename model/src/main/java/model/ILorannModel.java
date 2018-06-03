@@ -1,8 +1,10 @@
 package model;
 
+import model.Element.Mobile.IMobile;
+
 public interface ILorannModel {
 
-	IMap getMap();
+	ILevel getLevel();
 
 	IMobile getMyLorann();
 

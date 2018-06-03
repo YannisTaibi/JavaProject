@@ -1,9 +1,11 @@
 package model;
 
+import model.Element.Mobile.IMobile;
+
 public class LorannModel implements ILorannModel {
 
 	/**
-	 * 
+	 *
 	 * @param filename
 	 * @param myLorannStartX
 	 * @param myVehicleStartY
@@ -13,36 +15,29 @@ public class LorannModel implements ILorannModel {
 		throw new UnsupportedOperationException();
 	}
 
-	public IMap getMap() {
+	@Override
+	public ILevel getLevel() {
 		// TODO - implement LorannModel.getMap
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param map
-	 */
-	private void setMap(IMap map) {
-		// TODO - implement LorannModel.setMap
-		throw new UnsupportedOperationException();
-	}
-
+	@Override
 	public IMobile getMyLorann() {
 		// TODO - implement LorannModel.getMyLorann
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	 * 
-	 * @param myLorann
+	 *
+	 * @param map
 	 */
-	private void setMyLorann(IMobile myLorann) {
-		// TODO - implement LorannModel.setMyLorann
+	private void setLevel(ILevel level) {
+		// TODO - implement LorannModel.setMap
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	 * 
+	 *
 	 * @param myLorann
 	 */
 	private void setMyLorann(IMobile myLorann) {

@@ -1,27 +1,29 @@
 package model.Element.Mobile;
 
-import model.Element.*;
+import java.awt.Point;
+
+import model.Element.IElement;
 
 public interface IMobile extends IElement {
 
-	void moveUp();
-
-	void moveLeft();
-
-	void moveRight();
-
-	void moveDown();
-
 	void doNothing();
+
+	Point getPosition();
 
 	int getX();
 
 	int getY();
 
-	Boolean isAlive();
-
 	Boolean hasDied();
 
-	Point getPosition();
+	Boolean isAlive();
+
+	void moveDown();
+
+	void moveLeft();
+
+	void moveRight();
+
+	void moveUp();
 
 }
