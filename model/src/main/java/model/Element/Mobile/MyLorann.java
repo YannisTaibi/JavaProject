@@ -1,13 +1,29 @@
 package model.Element.Mobile;
 
-import java.util.ArrayList;
-
 import model.ILevel;
 import model.Element.Element;
+import model.Element.Permeability;
+import model.Element.Sprite;
 
 public class MyLorann extends Mobile {
 
-	private ArrayList sprites;
+	private static final Sprite sprite = new Sprite('H', "Lorann.png");
+
+	private static final Sprite spriteUp = new Sprite('H', "LorannUp.png");
+
+	private static final Sprite spriteLeft = new Sprite('H', "LorannLeft.png");
+
+	private static final Sprite spriteDown = new Sprite('H', "LorannDown.png");
+
+	private static final Sprite spriteRight = new Sprite('H', "LorannRight.png");
+
+	private static final Sprite spriteUpLeft = new Sprite('H', "LorannUpLeft.png");
+
+	private static final Sprite spriteUpRight = new Sprite('H', "LorannUpRight.png");
+
+	private static final Sprite spriteDownLeft = new Sprite('H', "LorannDownLeft.png");
+
+	private static final Sprite spriteDownRight = new Sprite('H', "LorannDownRight.png");
 
 	/**
 	 *
@@ -16,8 +32,15 @@ public class MyLorann extends Mobile {
 	 * @param level
 	 */
 	public MyLorann(int x, int y, ILevel level) {
-		// TODO - implement MyLorann.MyLorann
-		throw new UnsupportedOperationException();
+		super(x, y, sprite, level, Permeability.PENETRABLE);
+		spriteUp.loadImage();
+		spriteLeft.loadImage();
+		spriteDown.loadImage();
+		spriteRight.loadImage();
+		spriteUpLeft.loadImage();
+		spriteUpRight.loadImage();
+		spriteDownLeft.loadImage();
+		spriteDownRight.loadImage();
 	}
 
 	public void castSpell() {
@@ -44,50 +67,50 @@ public class MyLorann extends Mobile {
 
 	@Override
 	public void moveDown() {
-		// TODO - implement MyLorann.moveDown
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteDown);
 	}
 
 	@Override
 	public void moveDownLeft() {
-		// TODO - implement MyLorann.moveDownLeft
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteDownLeft);
 	}
 
 	@Override
 	public void moveDownRight() {
-		// TODO - implement MyLorann.moveDownRight
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteDownRight);
 	}
 
 	@Override
 	public void moveLeft() {
-		// TODO - implement MyLorann.moveLeft
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteLeft);
 	}
 
 	@Override
 	public void moveRight() {
-		// TODO - implement MyLorann.moveRight
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteRight);
 	}
 
 	@Override
 	public void moveUp() {
-		// TODO - implement MyLorann.moveUp
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteUp);
 	}
 
 	@Override
 	public void moveUpLeft() {
-		// TODO - implement MyLorann.moveUpLeft
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteUpLeft);
 	}
 
 	@Override
 	public void moveUpRight() {
-		// TODO - implement MyLorann.moveUpRight
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteUpRight);
 	}
 
 	public void pickupKey() {
