@@ -4,14 +4,12 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-
+import java.awt.*;
+import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-
-import placeholders.ILevel;
-import placeholders.IMobile;
-import placeholders.IOrderPerformer;
 import showboard.BoardFrame;
+import controller.Order;
 
 public class LorannView implements ILorannView {
 
@@ -22,7 +20,7 @@ public class LorannView implements ILorannView {
 	 *
 	 * @param keyCode
 	 */
-	public static Order keyCodeToUserOrder(int keyCode) {
+/*	public static Order keyCodeToUserOrder(int keyCode) {
 		Order order;
 		switch (keyCode) {
 		case KeyEvent.VK_RIGHT:
@@ -38,7 +36,7 @@ public class LorannView implements ILorannView {
 			order = order.DOWN;
 			break;
 		case KeyEvent.VK_SPACE:
-			order = order.CASTSPELL;
+			order = order.MAGIC;
 			break;
 		default:
 			order = order.NOP;
@@ -53,20 +51,21 @@ public class LorannView implements ILorannView {
 	private IMobile myLorann;
 
 	private IOrderPerformer orderPerformer;
-
+*/
 	/**
 	 *
 	 * @param level
 	 * @param myLorann
-	 */
+	 
+	/*
 	public LorannView(ILevel level, IMobile myLorann) throws IOException {
 		this.setView(levelView);
-		this.setLevel(road);
+		this.setLevel(level);
 		this.setMyLorann(myLorann);
 		this.getMyLorann().getSprite().loadImage();
 		this.setCloseView(new Rectangle(0, this.getMyLorann().getY(), this.getLevel().getWidth(), levelView));
 		SwingUtilities.invokeLater(this);
-	}
+	}*/
 
 	/**
 	 *
@@ -91,9 +90,11 @@ public class LorannView implements ILorannView {
 		return this.level;
 	}
 
-	private IOrderPerformer getOrderPerformer() {
+	/*private IOrderPerformer getOrderPerformer() {
 		return this.orderPerformer;
-	}
+	}*/
+	
+	
 
 	/**
 	 *
