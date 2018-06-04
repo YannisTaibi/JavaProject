@@ -11,8 +11,9 @@ import showboard.IBoard;
 public class Mobile extends Element implements IMobile {
 
 	private Point position;
-	private final Boolean alive = true;
+	private Boolean alive = true;
 	private IBoard board;
+	private ILevel level;
 
 	/**
 	 *
@@ -41,14 +42,13 @@ public class Mobile extends Element implements IMobile {
 	}
 
 	protected void die() {
-		// TODO - implement Mobile.die
-		throw new UnsupportedOperationException();
+		this.alive = false;
+		this.setHasMoved();
 	}
 
 	@Override
 	public void doNothing() {
-		// TODO - implement Mobile.doNothing
-		throw new UnsupportedOperationException();
+		this.setHasMoved();
 	}
 
 	protected IBoard getBoard() {
@@ -56,8 +56,7 @@ public class Mobile extends Element implements IMobile {
 	}
 
 	public ILevel getLevel() {
-		// TODO - implement Mobile.getLevel
-		throw new UnsupportedOperationException();
+		return this.level;
 	}
 
 	@Override
@@ -67,14 +66,12 @@ public class Mobile extends Element implements IMobile {
 
 	@Override
 	public int getX() {
-		// TODO - implement Mobile.getX
-		throw new UnsupportedOperationException();
+		return this.getPosition().x;
 	}
 
 	@Override
 	public int getY() {
-		// TODO - implement Mobile.getY
-		throw new UnsupportedOperationException();
+		return this.getPosition().y;
 	}
 
 	@Override
@@ -85,8 +82,7 @@ public class Mobile extends Element implements IMobile {
 
 	@Override
 	public Boolean isAlive() {
-		// TODO - implement Mobile.isAlive
-		throw new UnsupportedOperationException();
+		return this.alive;
 	}
 
 	@Override
@@ -134,8 +130,7 @@ public class Mobile extends Element implements IMobile {
 	}
 
 	private void setHasMoved() {
-		// TODO - implement Mobile.setHasMoved
-		throw new UnsupportedOperationException();
+		this.getLevel().setMobileHasChanged();
 	}
 
 	/**
@@ -143,8 +138,7 @@ public class Mobile extends Element implements IMobile {
 	 * @param level
 	 */
 	private void setLevel(ILevel level) {
-		// TODO - implement Mobile.setLevel
-		throw new UnsupportedOperationException();
+		this.level = level;
 	}
 
 	/**
@@ -160,8 +154,10 @@ public class Mobile extends Element implements IMobile {
 	 * @param x
 	 */
 	public void setX(int x) {
-		// TODO - implement Mobile.setX
-		throw new UnsupportedOperationException();
+		this.getPosition().x = x;
+		if (this.hasDied()) {
+			this.die();
+		}
 	}
 
 	/**
@@ -169,8 +165,10 @@ public class Mobile extends Element implements IMobile {
 	 * @param y
 	 */
 	public void setY(int y) {
-		// TODO - implement Mobile.setY
-		throw new UnsupportedOperationException();
+		this.getPosition().y = (y + this.getLevel().getHeight()) % this.getLevel().getHeight();
+		if (this.hasDied()) {
+			this.die();
+		}
 	}
 
 	/**

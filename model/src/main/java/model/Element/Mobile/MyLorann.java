@@ -67,50 +67,50 @@ public class MyLorann extends Mobile {
 
 	@Override
 	public void moveDown() {
-		// TODO - implement MyLorann.moveDown
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteDown);
 	}
 
 	@Override
 	public void moveDownLeft() {
-		// TODO - implement MyLorann.moveDownLeft
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteDownLeft);
 	}
 
 	@Override
 	public void moveDownRight() {
-		// TODO - implement MyLorann.moveDownRight
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteDownRight);
 	}
 
 	@Override
 	public void moveLeft() {
-		// TODO - implement MyLorann.moveLeft
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteLeft);
 	}
 
 	@Override
 	public void moveRight() {
-		// TODO - implement MyLorann.moveRight
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteRight);
 	}
 
 	@Override
 	public void moveUp() {
-		// TODO - implement MyLorann.moveUp
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteUp);
 	}
 
 	@Override
 	public void moveUpLeft() {
-		// TODO - implement MyLorann.moveUpLeft
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteUpLeft);
 	}
 
 	@Override
 	public void moveUpRight() {
-		// TODO - implement MyLorann.moveUpRight
-		throw new UnsupportedOperationException();
+		super.moveLeft();
+		this.setSprite(spriteUpRight);
 	}
 
 	public void pickupKey() {
