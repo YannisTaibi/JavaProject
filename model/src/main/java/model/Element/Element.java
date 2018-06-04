@@ -4,32 +4,35 @@ import java.awt.Image;
 
 public class Element implements IElement {
 
+	/** The sprite. */
+	private Sprite sprite;
+
+	/** The permeability. */
+	private Permeability permeability;
+
 	/**
 	 *
 	 * @param sprite
 	 * @param permeability
 	 */
 	public Element(Sprite sprite, Permeability permeability) {
-		// TODO - implement Element.Element
-		throw new UnsupportedOperationException();
+		this.setSprite(sprite);
+		this.setPermeability(permeability);
 	}
 
 	@Override
 	public Image getImage() {
-		// TODO - implement Element.getImage
-		throw new UnsupportedOperationException();
+		return this.getSprite().getImage();
 	}
 
 	@Override
 	public Permeability getPermeability() {
-		// TODO - implement Element.getPermeability
-		throw new UnsupportedOperationException();
+		return this.permeability;
 	}
 
 	@Override
 	public Sprite getSprite() {
-		// TODO - implement Element.getSprite
-		throw new UnsupportedOperationException();
+		return this.sprite;
 	}
 
 	/**
@@ -37,8 +40,7 @@ public class Element implements IElement {
 	 * @param permeability
 	 */
 	private void setPermeability(Permeability permeability) {
-		// TODO - implement Element.setPermeability
-		throw new UnsupportedOperationException();
+		this.permeability = permeability;
 	}
 
 	/**
@@ -46,7 +48,6 @@ public class Element implements IElement {
 	 * @param sprite
 	 */
 	protected void setSprite(Sprite sprite) {
-		// TODO - implement Element.setSprite
-		throw new UnsupportedOperationException();
+		this.sprite = sprite;
 	}
 }

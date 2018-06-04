@@ -23,8 +23,9 @@ public class Mobile extends Element implements IMobile {
 	 * @param permeability
 	 */
 	Mobile(int x, int y, Sprite sprite, ILevel level, Permeability permeability) {
-		// TODO - implement Mobile.Mobile
-		throw new UnsupportedOperationException();
+		this(sprite, level, permeability);
+		this.setX(x);
+		this.setY(y);
 	}
 
 	/**
@@ -34,8 +35,9 @@ public class Mobile extends Element implements IMobile {
 	 * @param permeability
 	 */
 	Mobile(Sprite sprite, ILevel level, Permeability permeability) {
-		// TODO - implement Mobile.Mobile
-		throw new UnsupportedOperationException();
+		super(sprite, permeability);
+		this.setLevel(level);
+		this.position = new Point();
 	}
 
 	protected void die() {
