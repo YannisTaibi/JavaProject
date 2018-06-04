@@ -14,6 +14,10 @@ public class MotionlessElementsFactory {
 	private static MotionlessElement[] motionlessElements = { key, closedDoor, openedDoor, corner, verticalWall,
 			horizontalWall, treasure, };
 
+	public MotionlessElement createBlank() {
+		return blank;
+	}
+
 	public MotionlessElement createClosedDoor() {
 		return closedDoor;
 	}
