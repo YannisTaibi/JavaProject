@@ -1,6 +1,6 @@
 package test;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -8,9 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import model.Element.Permeability;
-
-public class MotionlessElementsFactoryTest {
+public class BlankTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -29,18 +27,7 @@ public class MotionlessElementsFactoryTest {
 	}
 
 	@Test
-	public void testCreateBlank() {
-		final Blank blank = new Blank();
-		assertEquals(Permeability.PENETRABLE, blank.permeability);
-	}
-
-	@Test
-	public void testCreateCorner() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testCreateKey() {
+	public void test() {
 		fail("Not yet implemented");
 	}
 
