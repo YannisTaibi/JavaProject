@@ -9,21 +9,21 @@ public class MyLorann extends Mobile {
 
 	private static final Sprite sprite = new Sprite('H', "Lorann.png");
 
-	private static final Sprite spriteUp = new Sprite('H', "LorannUp.png");
+	private static final Sprite spriteUp = new Sprite('H', "Lorann_u.png");
 
-	private static final Sprite spriteLeft = new Sprite('H', "LorannLeft.png");
+	private static final Sprite spriteLeft = new Sprite('H', "Lorann_l.png");
 
-	private static final Sprite spriteDown = new Sprite('H', "LorannDown.png");
+	private static final Sprite spriteDown = new Sprite('H', "Lorann_b.png");
 
-	private static final Sprite spriteRight = new Sprite('H', "LorannRight.png");
+	private static final Sprite spriteRight = new Sprite('H', "Lorann_r.png");
 
-	private static final Sprite spriteUpLeft = new Sprite('H', "LorannUpLeft.png");
+	private static final Sprite spriteUpLeft = new Sprite('H', "Lorann_ul.png");
 
-	private static final Sprite spriteUpRight = new Sprite('H', "LorannUpRight.png");
+	private static final Sprite spriteUpRight = new Sprite('H', "Lorann_ur.png");
 
-	private static final Sprite spriteDownLeft = new Sprite('H', "LorannDownLeft.png");
+	private static final Sprite spriteDownLeft = new Sprite('H', "Lorann_bl.png");
 
-	private static final Sprite spriteDownRight = new Sprite('H', "LorannDownRight.png");
+	private static final Sprite spriteDownRight = new Sprite('H', "Lorann_br.png");
 
 	/**
 	 *
@@ -50,14 +50,13 @@ public class MyLorann extends Mobile {
 
 	@Override
 	protected void die() {
-		// TODO - implement MyLorann.die
-		throw new UnsupportedOperationException();
+		super.die();
 	}
 
 	@Override
 	public void doNothing() {
-		// TODO - implement MyLorann.doNothing
-		throw new UnsupportedOperationException();
+		super.doNothing();
+		this.setSprite(sprite);
 	}
 
 	public void goingThroughDoor() {
@@ -67,19 +66,19 @@ public class MyLorann extends Mobile {
 
 	@Override
 	public void moveDown() {
-		super.moveLeft();
+		super.moveDown();
 		this.setSprite(spriteDown);
 	}
 
 	@Override
 	public void moveDownLeft() {
-		super.moveLeft();
+		super.moveDownLeft();
 		this.setSprite(spriteDownLeft);
 	}
 
 	@Override
 	public void moveDownRight() {
-		super.moveLeft();
+		super.moveDownRight();
 		this.setSprite(spriteDownRight);
 	}
 
@@ -91,25 +90,25 @@ public class MyLorann extends Mobile {
 
 	@Override
 	public void moveRight() {
-		super.moveLeft();
+		super.moveRight();
 		this.setSprite(spriteRight);
 	}
 
 	@Override
 	public void moveUp() {
-		super.moveLeft();
+		super.moveUp();
 		this.setSprite(spriteUp);
 	}
 
 	@Override
 	public void moveUpLeft() {
-		super.moveLeft();
+		super.moveUpLeft();
 		this.setSprite(spriteUpLeft);
 	}
 
 	@Override
 	public void moveUpRight() {
-		super.moveLeft();
+		super.moveUpRight();
 		this.setSprite(spriteUpRight);
 	}
 
