@@ -6,10 +6,8 @@ import java.util.List;
 /**
  * <h1>The Interface IModel.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
  */
-public interface IModel {
+public interface IModel extends ILevel{
 
     /**
      * Gets the example by id.
@@ -41,4 +39,6 @@ public interface IModel {
      *             the SQL exception
      */
     List<Example> getAllExamples() throws SQLException;
+    
+    ILevel getLevel();
 }

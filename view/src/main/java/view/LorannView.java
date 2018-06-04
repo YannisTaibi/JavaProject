@@ -10,11 +10,25 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import showboard.BoardFrame;
 import controller.Order;
+import model.ILevel;
+import model.ILorannModel;
+import model.IModel;
+
 
 public class LorannView implements ILorannView {
 
 	private static int levelView = 69;
 	private static int squareSize = 69;
+	
+	
+	private IModel model;
+	private ILorannModel LorannModel;
+	private ILevel level;
+	private BoardFrame boardFrame;
+	
+
+		
+	
 
 	/**
 	 *
@@ -44,14 +58,13 @@ public class LorannView implements ILorannView {
 		}
 		return order;
 	}
-
+*/
 	private Rectangle closeWindow;
 	private int view;
-	private ILevel level;
-	private IMobile myLorann;
+	//private IMobile myLorann;
 
-	private IOrderPerformer orderPerformer;
-*/
+	//private IOrderPerformer orderPerformer;
+
 	/**
 	 *
 	 * @param level
@@ -126,22 +139,22 @@ public class LorannView implements ILorannView {
 
 	public void run() {
 		final BoardFrame boardFrame = new BoardFrame("Close view");
-		boardFrame.setDimension(new Dimension(this.getLevel().getWidth(), this.getLevel().getHeight()));
-		boardFrame.setDisplayFrame(this.closeView);
-		boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
+		boardFrame.setDimension(new Dimension(LorannModel.getLevel().getWidth(), LorannModel.getLevel().getHeight()));
+		boardFrame.setDisplayFrame(this.closeWindow);
+		boardFrame.setSize(this.closeWindow.width * squareSize, this.closeWindow.height * squareSize);
 		boardFrame.setHeightLooped(true);
 		boardFrame.addKeyListener(this);
 		boardFrame.setFocusable(true);
 		boardFrame.setFocusTraversalKeysEnabled(false);
 
-		for (int x = 0; x < this.getLevel().getWidth(); x++) {
-			for (int y = 0; y < this.getLevel().getHeight(); y++) {
+		for (int x = 0; x < LorannModel.getLevel().getWidth(); x++) {
+			for (int y = 0; y < LorannModel.getLevel().getHeight(); y++) {
 				boardFrame.addSquare(this.level.getOnTheLevelXY(x, y), x, y);
 			}
 		}
-		boardFrame.addPawn(this.getMyLorann());
+		boardFrame.addPawn(LorannModel.getMyLorann());
 
-		this.getLevel().getObservable().addObserver(boardFrame.getObserver());
+		LorannModel.getLevel().getObservable().addObserver(boardFrame.getObserver());
 		this.followMyLorann();
 
 		boardFrame.setVisible(true);
@@ -176,19 +189,6 @@ public class LorannView implements ILorannView {
 	 * @param xStart
 	 * @param yStart
 	 */
-	public void show(int xStart, int yStart) {
-		int y = yStart % this.getLevel().getHeight();
-		for (int view = 0; view < this.getView(); view++) {
-			for (int x = 0; x < this.getLevel().getWidth(); x++) {
-				if ((x == this.getMyLorann().getX()) && (y == yStart)) {
-					System.out.print(this.getMyLorann().getSprite().getConsoleImage());
-				} else {
-					System.out.print(this.getLevel().getOnTheLevelXY(x, y).getSprite().getConsoleImage());
-				}
-			}
-			y = (y + 1) % this.getLevel().getHeight();
-			System.out.print("\n");
-		}
-	}
+
 
 }
