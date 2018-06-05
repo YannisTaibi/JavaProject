@@ -143,7 +143,7 @@ public class LorannView implements ILorannView {
 		boardFrame.setDisplayFrame(this.closeWindow);
 		boardFrame.setSize(this.closeWindow.width * squareSize, this.closeWindow.height * squareSize);
 		boardFrame.setHeightLooped(true);
-		boardFrame.addKeyListener(this);
+		boardFrame.addKeyListener(boardFrame);
 		boardFrame.setFocusable(true);
 		boardFrame.setFocusTraversalKeysEnabled(false);
 
