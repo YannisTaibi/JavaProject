@@ -76,8 +76,8 @@ public class Mobile extends Element implements IMobile {
 
 	@Override
 	public Boolean hasDied() {
-		// TODO - implement Mobile.hasDied
-		throw new UnsupportedOperationException();
+		return this.getLevel().getOnTheLevelXY(this.getX(), this.getY())
+				.getPermeability() == Permeability.BLOCKINGFOROTHERENTITIES;
 	}
 
 	@Override
@@ -87,46 +87,50 @@ public class Mobile extends Element implements IMobile {
 
 	@Override
 	public void moveDown() {
-		// TODO - implement Mobile.moveDown
-		throw new UnsupportedOperationException();
+		this.setY(this.getY() + 1);
+		this.setHasMoved();
 	}
 
 	public void moveDownLeft() {
-		// TODO - implement Mobile.moveDownLeft
-		throw new UnsupportedOperationException();
+		this.setX(this.getX() - 1);
+		this.setY(this.getY() + 1);
+		this.setHasMoved();
 	}
 
 	public void moveDownRight() {
-		// TODO - implement Mobile.moveDownRight
-		throw new UnsupportedOperationException();
+		this.setX(this.getX() + 1);
+		this.setY(this.getY() + 1);
+		this.setHasMoved();
 	}
 
 	@Override
 	public void moveLeft() {
-		// TODO - implement Mobile.moveLeft
-		throw new UnsupportedOperationException();
+		this.setX(this.getX() - 1);
+		this.setHasMoved();
 	}
 
 	@Override
 	public void moveRight() {
-		// TODO - implement Mobile.moveRight
-		throw new UnsupportedOperationException();
+		this.setX(this.getX() + 1);
+		this.setHasMoved();
 	}
 
 	@Override
 	public void moveUp() {
-		// TODO - implement Mobile.moveUp
-		throw new UnsupportedOperationException();
+		this.setY(this.getY() - 1);
+		this.setHasMoved();
 	}
 
 	public void moveUpLeft() {
-		// TODO - implement Mobile.moveUpLeft
-		throw new UnsupportedOperationException();
+		this.setX(this.getX() - 1);
+		this.setY(this.getY() - 1);
+		this.setHasMoved();
 	}
 
 	public void moveUpRight() {
-		// TODO - implement Mobile.moveUpRight
-		throw new UnsupportedOperationException();
+		this.setX(this.getX() + 1);
+		this.setY(this.getY() - 1);
+		this.setHasMoved();
 	}
 
 	private void setHasMoved() {

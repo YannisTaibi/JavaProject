@@ -1,6 +1,10 @@
 package model.Element;
 
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Sprite {
 
@@ -14,8 +18,7 @@ public class Sprite {
 	 * @param character
 	 */
 	public Sprite(char character) {
-		// TODO - implement Sprite.Sprite
-		throw new UnsupportedOperationException();
+		this(character, "noimage.jpg");
 	}
 
 	/**
@@ -24,8 +27,8 @@ public class Sprite {
 	 * @param imageName
 	 */
 	public Sprite(char character, String imageName) {
-		// TODO - implement Sprite.Sprite
-		throw new UnsupportedOperationException();
+		this.setConsoleImage(character);
+		this.setImageName(imageName);
 	}
 
 	public char getConsoleImage() {
@@ -44,9 +47,8 @@ public class Sprite {
 		return this.imageLoaded;
 	}
 
-	public void loadImage() {
-		// TODO - implement Sprite.loadImage
-		throw new UnsupportedOperationException();
+	public void loadImage() throws IOException {
+		this.setImage(ImageIO.read(new File("images/" + this.getImageName())));
 	}
 
 	/**
@@ -73,9 +75,8 @@ public class Sprite {
 		this.imageLoaded = isImageLoaded;
 	}
 
-	private String setImageName() {
-		// TODO - implement Sprite.setImageName
-		throw new UnsupportedOperationException();
+	private void setImageName(final String imageName) {
+		this.imageName = imageName;
 	}
 
 }

@@ -4,73 +4,68 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.awt.*;
-import java.awt.event.KeyListener;
+
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-import showboard.BoardFrame;
+
 import controller.Order;
 import model.ILevel;
 import model.ILorannModel;
+import model.IMobile;
 import model.IModel;
-
+import showboard.BoardFrame;
 
 public class LorannView implements ILorannView {
 
-	private static int levelView = 69;
-	private static int squareSize = 69;
-	
-	
-	private IModel model;
-	private ILorannModel LorannModel;
-	private ILevel level;
-	private BoardFrame boardFrame;
-	
-
-		
-	
+	private static int levelView = 70;
+	private static int squareSize = 70;
 
 	/**
 	 *
 	 * @param keyCode
 	 */
-/*	public static Order keyCodeToUserOrder(int keyCode) {
+	public static Order keyCodeToUserOrder(int keyCode) {
 		Order order;
 		switch (keyCode) {
 		case KeyEvent.VK_RIGHT:
-			order = order.RIGHT;
+			order = Order.RIGHT;
 			break;
 		case KeyEvent.VK_LEFT:
-			order = order.LEFT;
+			order = Order.LEFT;
 			break;
 		case KeyEvent.VK_UP:
-			order = order.UP;
+			order = Order.UP;
 			break;
 		case KeyEvent.VK_DOWN:
-			order = order.DOWN;
+			order = Order.DOWN;
 			break;
 		case KeyEvent.VK_SPACE:
-			order = order.MAGIC;
+			order = Order.MAGIC;
 			break;
 		default:
-			order = order.NOP;
+			order = Order.NOP;
 			break;
 		}
 		return order;
 	}
-*/
+
+	private IModel model;
+	private ILorannModel LorannModel;
+	private ILevel level;
+
+	private BoardFrame boardFrame;
+
 	private Rectangle closeWindow;
 	private int view;
-	//private IMobile myLorann;
-
-	//private IOrderPerformer orderPerformer;
+	private IMobile myLorann;
+	private IOrderPerformer orderPerformer;
 
 	/**
 	 *
 	 * @param level
 	 * @param myLorann
-	 
-	/*
+	 */
+
 	public LorannView(ILevel level, IMobile myLorann) throws IOException {
 		this.setView(levelView);
 		this.setLevel(level);
@@ -78,7 +73,7 @@ public class LorannView implements ILorannView {
 		this.getMyLorann().getSprite().loadImage();
 		this.setCloseView(new Rectangle(0, this.getMyLorann().getY(), this.getLevel().getWidth(), levelView));
 		SwingUtilities.invokeLater(this);
-	}*/
+	}
 
 	/**
 	 *
@@ -103,11 +98,9 @@ public class LorannView implements ILorannView {
 		return this.level;
 	}
 
-	/*private IOrderPerformer getOrderPerformer() {
+	private IOrderPerformer getOrderPerformer() {
 		return this.orderPerformer;
-	}*/
-	
-	
+	}
 
 	/**
 	 *
@@ -139,7 +132,8 @@ public class LorannView implements ILorannView {
 
 	public void run() {
 		final BoardFrame boardFrame = new BoardFrame("Close view");
-		boardFrame.setDimension(new Dimension(LorannModel.getLevel().getWidth(), LorannModel.getLevel().getHeight()));
+		boardFrame.setDimension(
+				new Dimension(this.LorannModel.getLevel().getWidth(), this.LorannModel.getLevel().getHeight()));
 		boardFrame.setDisplayFrame(this.closeWindow);
 		boardFrame.setSize(this.closeWindow.width * squareSize, this.closeWindow.height * squareSize);
 		boardFrame.setHeightLooped(true);
@@ -147,14 +141,14 @@ public class LorannView implements ILorannView {
 		boardFrame.setFocusable(true);
 		boardFrame.setFocusTraversalKeysEnabled(false);
 
-		for (int x = 0; x < LorannModel.getLevel().getWidth(); x++) {
-			for (int y = 0; y < LorannModel.getLevel().getHeight(); y++) {
+		for (int x = 0; x < this.LorannModel.getLevel().getWidth(); x++) {
+			for (int y = 0; y < this.LorannModel.getLevel().getHeight(); y++) {
 				boardFrame.addSquare(this.level.getOnTheLevelXY(x, y), x, y);
 			}
 		}
-		boardFrame.addPawn(LorannModel.getMyLorann());
+		boardFrame.addPawn(this.LorannModel.getMyLorann());
 
-		LorannModel.getLevel().getObservable().addObserver(boardFrame.getObserver());
+		this.LorannModel.getLevel().getObservable().addObserver(boardFrame.getObserver());
 		this.followMyLorann();
 
 		boardFrame.setVisible(true);
@@ -183,12 +177,4 @@ public class LorannView implements ILorannView {
 	private void setView(int view) {
 		this.view = view;
 	}
-
-	/**
-	 *
-	 * @param xStart
-	 * @param yStart
-	 */
-
-
 }

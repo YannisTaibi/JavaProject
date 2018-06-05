@@ -1,8 +1,14 @@
 package model;
 
+import java.io.IOException;
+
 import model.Element.Mobile.IMobile;
+import model.Element.Mobile.MyLorann;
 
 public class LorannModel implements ILorannModel {
+
+	private ILevel level;
+	private IMobile myLorann;
 
 	/**
 	 *
@@ -10,21 +16,19 @@ public class LorannModel implements ILorannModel {
 	 * @param myLorannStartX
 	 * @param myVehicleStartY
 	 */
-	public LorannModel(String filename, int myLorannStartX, int myVehicleStartY) {
-		// TODO - implement LorannModel.LorannModel
-		throw new UnsupportedOperationException();
+	public LorannModel(String filename, int myLorannStartX, int myVehicleStartY) throws IOException {
+		this.setLevel(new Level(fileName));
+		this.setMyLorann(new MyLorann(myLorannStartX, myLorannStartY, this.getLevel()));
 	}
 
 	@Override
 	public ILevel getLevel() {
-		// TODO - implement LorannModel.getMap
-		throw new UnsupportedOperationException();
+		return this.level;
 	}
 
 	@Override
 	public IMobile getMyLorann() {
-		// TODO - implement LorannModel.getMyLorann
-		throw new UnsupportedOperationException();
+		return this.myLorann;
 	}
 
 	/**
@@ -32,8 +36,7 @@ public class LorannModel implements ILorannModel {
 	 * @param map
 	 */
 	private void setLevel(ILevel level) {
-		// TODO - implement LorannModel.setMap
-		throw new UnsupportedOperationException();
+		this.level = level;
 	}
 
 	/**
@@ -41,8 +44,7 @@ public class LorannModel implements ILorannModel {
 	 * @param myLorann
 	 */
 	private void setMyLorann(IMobile myLorann) {
-		// TODO - implement LorannModel.setMyLorann
-		throw new UnsupportedOperationException();
+		this.myLorann = myLorann;
 	}
 
 }
